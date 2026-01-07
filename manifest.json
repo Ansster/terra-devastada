@@ -1,0 +1,12 @@
+{
+  "name": "Terra Devastada",
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "action": {
+    "title": "Terra Devastada",
+    "icon": "icon.svg",
+    "popover": "index.html",
+    "height": 600,
+    "width": 400
+  }
+}
