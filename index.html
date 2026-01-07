@@ -121,17 +121,9 @@
     line-height: 1.5;
   }
 
-  .condicoes {
-    min-height: 80px;
-  }
-
-  .caracteristicas {
-    min-height: 140px;
-  }
-
-  .tormentos {
-    min-height: 90px;
-  }
+  .condicoes { min-height: 80px; }
+  .caracteristicas { min-height: 140px; }
+  .tormentos { min-height: 90px; }
 
   .conviccao-section {
     background: rgba(0, 0, 0, 0.3);
@@ -223,37 +215,17 @@
     transform: translateY(0);
   }
 
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.3);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgba(200, 74, 74, 0.5);
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(200, 74, 74, 0.7);
-  }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); }
+  ::-webkit-scrollbar-thumb { background: rgba(200, 74, 74, 0.5); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(200, 74, 74, 0.7); }
 
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  .ficha {
-    animation: fadeIn 0.6s ease-out;
-  }
+  .ficha { animation: fadeIn 0.6s ease-out; }
 
   .corner-decoration {
     position: absolute;
@@ -263,33 +235,10 @@
     pointer-events: none;
   }
 
-  .corner-decoration.top-left {
-    top: 0;
-    left: 0;
-    border-right: none;
-    border-bottom: none;
-  }
-
-  .corner-decoration.top-right {
-    top: 0;
-    right: 0;
-    border-left: none;
-    border-bottom: none;
-  }
-
-  .corner-decoration.bottom-left {
-    bottom: 0;
-    left: 0;
-    border-right: none;
-    border-top: none;
-  }
-
-  .corner-decoration.bottom-right {
-    bottom: 0;
-    right: 0;
-    border-left: none;
-    border-top: none;
-  }
+  .corner-decoration.top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+  .corner-decoration.top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+  .corner-decoration.bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+  .corner-decoration.bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
 </style>
 </head>
 
@@ -342,7 +291,6 @@
 </div>
 
 <script>
-  // Carregar dados salvos ao abrir
   function carregarDados() {
     const dados = JSON.parse(localStorage.getItem('terraDevastada') || '{}');
     
@@ -351,7 +299,6 @@
     if (dados.caracteristicas) document.getElementById('caracteristicas').value = dados.caracteristicas;
     if (dados.tormentos) document.getElementById('tormentos').value = dados.tormentos;
     
-    // Carregar convicção
     if (dados.conviccao) {
       const dots = document.querySelectorAll('.dot');
       dados.conviccao.forEach((ativo, index) => {
@@ -362,7 +309,6 @@
     }
   }
 
-  // Salvar dados automaticamente
   function salvarDados() {
     const dots = Array.from(document.querySelectorAll('.dot')).map(
       dot => dot.classList.contains('ativo')
@@ -379,13 +325,11 @@
     localStorage.setItem('terraDevastada', JSON.stringify(dados));
   }
 
-  // Eventos de salvamento automático
   document.getElementById('nome').addEventListener('input', salvarDados);
   document.getElementById('condicoes').addEventListener('input', salvarDados);
   document.getElementById('caracteristicas').addEventListener('input', salvarDados);
   document.getElementById('tormentos').addEventListener('input', salvarDados);
 
-  // Toggle de convicção
   document.querySelectorAll('.dot').forEach(dot => {
     dot.addEventListener('click', () => {
       dot.classList.toggle('ativo');
@@ -393,7 +337,6 @@
     });
   });
 
-  // Botão limpar
   document.getElementById('limpar').addEventListener('click', () => {
     if (confirm('⚠ Tem certeza que deseja limpar toda a ficha? Esta ação não pode ser desfeita.')) {
       localStorage.removeItem('terraDevastada');
@@ -407,7 +350,6 @@
     }
   });
 
-  // Carregar dados ao iniciar
   carregarDados();
 </script>
 
