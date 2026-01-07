@@ -1,7 +1,9 @@
 {
   "name": "Terra Devastada",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "manifest_version": 1,
+  "author": "Ansster",
+  "description": "Ficha de personagem para Terra Devastada RPG",
   "action": {
     "title": "Terra Devastada",
     "icon": "icon.svg",
